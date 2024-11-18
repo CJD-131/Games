@@ -1,5 +1,5 @@
 # Define the path to the game executable
-$gamePath = "C:\Users\cjdow\AppData\Local\XIVLauncher\XIVLauncher.exe"
+$gamePath = "$home\AppData\Local\XIVLauncher\XIVLauncher.exe"
 
 # Check if the game executable exists
 if (Test-Path $gamePath) {
