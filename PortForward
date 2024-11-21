@@ -1,0 +1,22 @@
+# Replace these variables with your router's information
+$routerIP = "192.168.1.1"
+$username = "admin"
+$password = "yourpassword"
+$deviceIP = "192.168.1.50"
+$port = 3074,4000,6112:6119,20500,20510,27000:27050,28960,3478,4379:4380
+
+# Create the URI for the API request (this is just an example, your router's API will have specific URIs)
+$uri = "http://$routerIP/api/openport"
+
+# Define the body of the request
+$body = @{
+    username = $username
+    password = $password
+    device_ip = $deviceIP
+    port = $port
+} | ConvertTo-Json
+
+# Send the HTTP request to open the port
+$response = Invoke-RestMethod -Uri $uri -Method Post -Body $body -ContentType "application/json"
+
+Write-Host "Response from router: $response"
