@@ -1,0 +1,15 @@
+# Array of application paths to whitelist
+$apps = @("C:\Path\To\App1.exe", "C:\Path\To\App2.exe") # Replace with the actual paths to your applications
+
+foreach ($app in $apps) {
+    # Get the app name
+    $appName = [System.IO.Path]::GetFileNameWithoutExtension($app)
+    
+    # Create inbound rule
+    New-NetFirewallRule -DisplayName "$appName - Inbound" -Direction Inbound -Program $app -Action Allow -Profile Any
+    
+    # Create outbound rule
+    New-NetFirewallRule -DisplayName "$appName - Outbound" -Direction Outbound -Program $app -Action Allow -Profile Any
+}
+
+Write-Host "The specified applications have been whitelisted through the Windows Firewall."
