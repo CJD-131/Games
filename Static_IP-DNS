@@ -1,0 +1,18 @@
+# Define the network interface
+$interfaceAlias = "Ethernet" # Change this to the name of your network interface
+
+# Define the static IP address, subnet mask, and default gateway
+$ipAddress = "192.168.50.xxx" # Change this to your desired IP address
+$subnetMask = "255.255.255.0" # Change this to your subnet mask
+$gateway = "192.168.50.xxx" # Change this to your default gateway
+
+# Define Cloudflare DNS servers
+$dnsServers = @("1.1.1.1", "1.0.0.1")
+
+# Set the IP address and subnet mask
+New-NetIPAddress -InterfaceAlias $interfaceAlias -IPAddress $ipAddress -PrefixLength 24 -DefaultGateway $gateway
+
+# Set the DNS servers
+Set-DnsClientServerAddress -InterfaceAlias $interfaceAlias -ServerAddresses $dnsServers
+
+Write-Host "Static IP and DNS settings have been configured."
