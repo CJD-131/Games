@@ -9,3 +9,6 @@ Gaming Stuff
 
 "Whitelist_Apps" is a quick script that allows you to add specific applications to the whitelist of windows defender. This allows you to bypass unwanted issues with Windows Firewall blocking trusted apps.  
     **You need to add the desired app executable path to the script for it to work**
+
+"PortForward" is a basic script designed to access your network router and open a series of ports required for some games to have an Open NAT type and allow for better connectivity and more stable connection to the game servers.
+      **You need to input your router information at the start of the script that will allow powershell to access your router settings**
